@@ -1,4 +1,4 @@
-#include "rwalk.h"
+// #include "rwalk.h"
 #include <omp.h>
 #include <sys/time.h>
 #include <stdlib.h>
