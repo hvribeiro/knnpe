@@ -1,0 +1,118 @@
+cff-version: 0.1.0
+title: knnpe
+message: >-
+  knnp: A Python package for characterizing unstructured data with the 
+  nearest neighbor permutation entropy
+type: software
+authors:
+  - given-names: Leonardo G. J. M.
+    family-names: Voltarelli
+    email: leonardovoltarelli07@gmail.com
+    affiliation: >-
+      Departamento de Física, Universidade Estadual de
+      Maringá, Maringá, PR 87020-900, Brazil
+    orcid: 'https://orcid.org/0009-0006-7198-503X'
+  - given-names: Arthur A. B.
+    family-names: Pessa
+    email: arthur_pessa@hotmail.com
+    affiliation: >-
+      Departamento de Física, Universidade Estadual de
+      Maringá, Maringá, PR 87020-900, Brazil
+    orcid: 'https://orcid.org/0000-0002-4942-0618'
+  - given-names: Luciano
+    family-names: Zunino
+    email: lucianoz@ciop.unlp.edu.ar
+    affiliation: >-
+      Departamento de Ciencias Básicas, Facultad de Ingeniería, 
+      Universidad Nacional de La Plata (UNLP), 1900 La Plata, Argentina
+    orcid: 'https://orcid.org/0000-0002-2852-3263'
+  - given-names: Rafael S.
+    family-names: Zola
+    email: rzola@utfpr.edu.br
+    affiliation: >-
+      Departamento de Física, Universidade Tecnológica Federal do 
+      Paraná, Apucarana, PR 86812-460, Brazil
+    orcid: 'https://orcid.org/0000-0003-4930-5262'
+  - given-names: Ervin K.
+    family-names: Lenzi
+    email: eklenzi@uepg.br
+    affiliation: >-
+      Departamento de Física, Universidade Estadual de Ponta Grossa, 
+      Ponta Grossa, PR 84030-900, Brazil
+    orcid: 'https://orcid.org/0000-0003-3853-1790'
+  - given-names: Matjaz
+    family-names: Perc
+    email: matjaz.perc@gmail.com
+    affiliation: >-
+      Faculty of Natural Sciences and Mathematics, 
+      University of Maribor, Koroška cesta 160, 
+      2000 Maribor, Slovenia
+    orcid: 'https://orcid.org/0000-0002-3087-541X'
+  - given-names: Haroldo V.
+    family-names: Ribeiro
+    affiliation: >-
+      Departamento de Física, Universidade Estadual de
+      Maringá, Maringá, PR 87020-900, Brazil
+    email: hvr@dfi.uem.br
+    orcid: 'https://orcid.org/0000-0002-9532-5195'
+identifiers:
+  - type: doi
+    value: 10.1063/?
+  - type: other
+    value: 'https://arxiv.org/abs/?'
+    description: 'arXiv:'
+repository-code: 'https://github.com/hvribeiro/knnpe'
+url: 'https://arthurpessa.github.io/knnpe/'
+abstract: >-
+  Permutation entropy and its associated frameworks are 
+  remarkable examples of physics-inspired techniques 
+  adept at processing complex and voluminous datasets. 
+  Despite substantial progress in developing and 
+  applying these tools, their use has been predominantly 
+  limited to structured datasets such as time series or 
+  images. Here, we introduce the k-nearest neighbor 
+  permutation entropy, an innovative extension of the 
+  permutation entropy tailored for unstructured data, 
+  irrespective of their spatial or temporal configuration 
+  and dimensionality. Our approach builds upon nearest 
+  neighbor graphs to establish neighborhood relations 
+  and uses random walks to extract ordinal patterns. 
+  This tool not only adeptly identifies variations in 
+  patterns of unstructured data, but also does so with 
+  a precision that significantly surpasses conventional 
+  measures such as spatial autocorrelation. Moreover, 
+  the k-nearest neighbor permutation entropy provides 
+  a natural approach for incorporating amplitude 
+  information and time gaps when analyzing time series 
+  or images, thus significantly enhancing its noise 
+  resilience and predictive capabilities compared to the 
+  usual permutation entropy. Our research substantially 
+  expands the applicability of ordinal methods to broader 
+  arrays of data types, opening promising research avenues 
+  for extending the permutation entropy toolkit for 
+  unstructured data.
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Voltarelli"
+    given-names: "Leonardo G. J. M."
+  - family-names: "Pessa"
+    given-names: "Arthur A. B."
+  - family-names: "Zunino"
+    given-names: "Luciano"
+  - family-names: "Zola"
+    given-names: "Rafael S."
+  - family-names: "Lenzi"
+    given-names: "Ervin K."
+  - family-names: "Perc"
+    given-names: "Matjaz"
+  - family-names: "Ribeiro"
+    given-names: "Haroldo V."
+  doi: "10.1063/"
+  journal: "?"
+  start: ?page
+  title: "Characterizing unstructured data with the nearest neighbor permutation entropy"
+  issue: ?
+  volume: ?
+  year: ?
