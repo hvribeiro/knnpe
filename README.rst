@@ -8,7 +8,7 @@
    :target: https://pypi.org/project/knnpe/
    :scale: 100%
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
-   :target: https://knnpe.readthedocs.io/?badge=latest
+   :target: https://knnpe.readthedocs.io/en/latest/
    :alt: Documentation Status
    :scale: 100%
 
@@ -22,7 +22,7 @@ the relative ordering of time series elements [#bandtpompe2002]_ or image pixels
 permutation entropy to unstructured datasets. This method builds upon nearest neighbor graphs to establish neighborhood
 relations among data points and uses random walks over these graphs to extract ordinal patterns and their distribution, 
 thereby defining the $k$-nearest neighbor permutation entropy.
-
+ 
 If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
 
 - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
@@ -135,7 +135,7 @@ The function `knn_permutation_entropy` has the following parameters:
      If True, calculates graph density and largest component fraction (default is False).
 
 We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
-illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://readthedocs.org/projects/knnpe/badge/?version=latest>`_
+illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
 
 Contributing
 ============
