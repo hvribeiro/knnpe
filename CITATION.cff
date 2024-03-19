@@ -110,9 +110,9 @@ preferred-citation:
   - family-names: "Ribeiro"
     given-names: "Haroldo V."
   doi: "10.1063/"
-  journal: "?"
-  start: ?page
+  journal: "arXiv"
+  start: 0
   title: "Characterizing unstructured data with the nearest neighbor permutation entropy"
-  issue: ?
-  volume: ?
-  year: ?
+  issue: 0
+  volume: 0
+  year: 2024

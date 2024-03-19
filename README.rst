@@ -17,7 +17,7 @@
 knnp: A Python package for characterizing unstructured data with the nearest neighbor permutation entropy
 =========================================================================================================
 
-``knnpe``: A Python package for characterizing unstructured data with the nearest neighbor permutation entropy[#voltarelli2024]_
+``knnpe``: A Python package for characterizing unstructured data with the nearest neighbor permutation entropy [#voltarelli2024]_
 
 
 If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
