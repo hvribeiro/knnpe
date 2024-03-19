@@ -63,6 +63,7 @@ Basic usage
 ===========
 Implementation of the :math:`k`-nearest neighbor permutation entropy. (A) Illustration of a dataset with irregularly distributed data points :math:`\\{z_i\\}_{i=1,\\dots,N}` in the :math:`xy`-plane where each coordinate pair :math:`(x_i,y_i)` is associated with a value :math:`z_i`. (B) Initially, we construct a :math:`k`-nearest neighbor graph using the data coordinates to define neighborhood relationships. In this graph, each data point :math:`z_i` represents a node, with undirected edges connecting pairs :math:`i\\leftrightarrow j` when :math:`j` is among the :math:`k`-nearest neighbors of :math:`i` (:math:`k=3` in this example). (C) Subsequently, we execute :math:`n` biased random walks of length :math:`w` starting from each node, sampling the data points to generate time series (`n=2` and :math:`w=6` in this example). We then apply the Bandt-Pompe approach to each of these time series. This involves creating overlapping partitions of length :math:`d` (embedding dimension) and arranging the partition indices in ascending order of their values to determine the sorting permutations for each partition (`d=3` in this example). (D) Finally, we evaluate the probability of each of the :math:`d!` possible permutations (ordinal distribution) and calculate its Shannon entropy, thereby defining the :math:`k`-nearest neighbor permutation entropy.
 
+|
 .. figure:: https://raw.githubusercontent.com/hvribeiro/knnpe/main/examples/figs/figmethod.png
    :align: center
 
