@@ -45,7 +45,6 @@ setup(
     description="A Python package for characterizing unstructured data with the nearest neighbor permutation entropy",
     long_description=long_description,
     long_description_content_type="text/x-rst; charset=UTF-8",
-    url="https://github.com/hvribeiro/knnpe",
     packages=find_packages(),
     ext_modules=[
         CTypesExtension(
