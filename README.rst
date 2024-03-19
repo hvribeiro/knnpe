@@ -8,7 +8,7 @@
    :target: https://pypi.org/project/knnpe/
    :scale: 100%
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
-   :target: https://hvribeiro.github.io/knnpe/
+   :target: https://knnpe.readthedocs.io/en/latest/
    :alt: Documentation Status
    :scale: 100%
 
