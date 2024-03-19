@@ -142,7 +142,7 @@ References
 
 .. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, 
    R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. Characterizing unstructured 
-   data with the nearest neighbor permutation entropy. ?? 31, 063110 (2024).
+   data with the nearest neighbor permutation entropy. ?, ? (2024).
 .. [#bandtpompe2002] C. Bandt, B. Pompe. Permutation entropy: A Natural 
    Complexity Measure for Time Series. Physical Review Letters 88, 174102 (2002).
 .. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S.
