@@ -8,7 +8,7 @@
    :target: https://pypi.org/project/knnpe/
    :scale: 100%
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
-   :target: https://knnpe.readthedocs.io/?badge=latest
+   :target: https://hvribeiro.github.io/knnpe/
    :alt: Documentation Status
    :scale: 100%
 
@@ -135,7 +135,7 @@ The function `knn_permutation_entropy` has the following parameters:
      If True, calculates graph density and largest component fraction (default is False).
 
 We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
-illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://readthedocs.org/projects/knnpe/badge/?version=latest>`_
+illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
 
 Contributing
 ============
