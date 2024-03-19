@@ -1,3 +1,22 @@
+[project]
+name = "knnpe"
+version = "0.1.1"
+authors = [{ name="Haroldo V. Ribeiro", email="hvr@dfi.uem.br" },]
+description = "A Python package for characterizing unstructured data with the nearest neighbor permutation entropy"
+readme = "README.rst"
+license = {text = "MIT License"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/hvribeiro/knnpe"
+Repository = "https://github.com/hvribeiro/knnpe"
+Issues = "https://github.com/hvribeiro/knnpe/issues"
+
 [build-system]
 requires = [
     "setuptools>=42",
