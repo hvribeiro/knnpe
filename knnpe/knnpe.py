@@ -183,8 +183,8 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
 
     data = np.asarray(data)
 
-    data_to_graph = data[:,0:2]
-    time_series = data[:,2]
+    data_to_graph = data[:,0:-1]
+    time_series = data[:,-1]
 
     if not isinstance(n_neighbors, (list,np.ndarray)):
         n_neighbors = [n_neighbors]
