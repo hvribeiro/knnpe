@@ -1,6 +1,6 @@
-name: "Pull Request Docs Check"
-on: 
-- pull_request
+name: Build
+
+on: [push, pull_request]
 
 jobs:
   docs:
