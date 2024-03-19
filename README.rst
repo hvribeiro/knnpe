@@ -22,27 +22,25 @@ the relative ordering of time series elements [#bandtpompe2002]_ or image pixels
 permutation entropy to unstructured datasets. This method builds upon nearest neighbor graphs to establish neighborhood
 relations among data points and uses random walks over these graphs to extract ordinal patterns and their distribution, 
 thereby defining the $k$-nearest neighbor permutation entropy.
+ 
+If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
 
-.. note::
-  
-   If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
+- L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
+  `Characterizing unstructured data with the nearest neighbor permutation entropy <https://doi.org/?>`_, 
+  ?, ? (2024).  `arXiv:? <https://arxiv.org/abs/?>`_
 
-   - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
-     `Characterizing unstructured data with the nearest neighbor permutation entropy <https://doi.org/?>`_, 
-     ?, ? (2024).  `arXiv:? <https://arxiv.org/abs/?>`_
-
-   .. code-block:: bibtex
-       
-      @article{voltarelli2024characterizing,
-       title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
-       author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
-       journal       = {},
-       volume        = {},
-       number        = {},
-       pages         = {},
-       year          = {2024},
-       doi           = {},
-      }
+.. code-block:: bibtex
+    
+   @article{voltarelli2024characterizing,
+    title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
+    author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
+    journal       = {},
+    volume        = {},
+    number        = {},
+    pages         = {},
+    year          = {2024},
+    doi           = {},
+   }
 
 Installing
 ==========
