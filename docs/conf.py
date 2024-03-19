@@ -14,8 +14,9 @@ import os
 import sys
 import inspect
 
-sys.path.insert(0, os.path.abspath('../knnpe/'))
 
+# sys.path.insert(0, os.path.abspath('../knnpe/rwalk/'))
+sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
@@ -61,7 +62,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-linkcode_url = "https://github.com/hvribeiro/knnpe/blob/master/knnpe/knnpe.py"
+linkcode_url = "https://github.com/hvribeiro/knnpe/blob/main/knnpe/knnpe.py"
 
 def linkcode_resolve(domain, info):
     """

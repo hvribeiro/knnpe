@@ -9,7 +9,7 @@ Welcome to knnpe's documentation!
 .. toctree::
    :maxdepth: 1
 
-.. automodule:: knnpe
+.. automodule:: knnpe.knnpe
    :members:
 
 Indices

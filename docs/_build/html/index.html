@@ -19,6 +19,7 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/js/rtd_search_config.js"></script>
         <script src="_static/js/rtd_sphinx_search.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -45,7 +46,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to knnpe’s documentation!</a></li>
+<li><a class="reference internal" href="#">Welcome to knnpe’s documentation!</a><ul>
+<li><a class="reference internal" href="#knnpe-a-python-package-implementing-the-k-nearest-neighbor-permutation-entropy">knnpe: A Python package implementing the <em>k</em>-nearest neighbor permutation entropy</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices">Indices</a></li>
 </ul>
 </div>
@@ -77,6 +84,173 @@
 <h1>Welcome to knnpe’s documentation!<a class="headerlink" href="#welcome-to-knnpe-s-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<span class="target" id="module-knnpe.knnpe"></span><section id="knnpe-a-python-package-implementing-the-k-nearest-neighbor-permutation-entropy">
+<h2>knnpe: A Python package implementing the <em>k</em>-nearest neighbor permutation entropy<a class="headerlink" href="#knnpe-a-python-package-implementing-the-k-nearest-neighbor-permutation-entropy" title="Permalink to this heading"></a></h2>
+<p>The <em>k</em>-nearest neighbor permutation entropy <a class="footnote-reference brackets" href="#voltarelli2024" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> extends the fundamental premise of investigating
+the relative ordering of time series elements <a class="footnote-reference brackets" href="#bandtpompe2002" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> or image pixels <a class="footnote-reference brackets" href="#ribeiro2012" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> inaugurated by
+permutation entropy to unstructured datasets. This method builds upon nearest neighbor graphs to establish neighborhood
+relations among data points and uses random walks over these graphs to extract ordinal patterns and their distribution,
+thereby defining the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor permutation entropy.</p>
+<p>If you have used <code class="docutils literal notranslate"><span class="pre">knnpe</span></code> in a scientific publication, we would appreciate citations to the following reference <a class="footnote-reference brackets" href="#voltarelli2024" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>:</p>
+<ul class="simple">
+<li><p>L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro,
+<a class="reference external" href="https://doi.org/?">Characterizing unstructured data with the nearest neighbor permutation entropy</a>,
+?, ? (2024).  <a class="reference external" href="https://arxiv.org/abs/?">arXiv:?</a></p></li>
+</ul>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">voltarelli2024characterizing</span><span class="p">,</span>
+<span class="w"> </span><span class="na">title</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{Characterizing unstructured data with the nearest neighbor permutation entropy}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">author</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">journal</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">volume</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">number</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">pages</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">year</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
+<span class="w"> </span><span class="na">doi</span><span class="w">           </span><span class="p">=</span><span class="w"> </span><span class="s">{}</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">knnpe</span></code> uses <a class="reference external" href="https://www.openmp.org/">OpenMP</a> and <a class="reference external" href="https://www.gnu.org/software/gsl/">GNU Scientific Library (GSL)</a>
+to implement a parallelized numerically efficient random walk function. This function is written in C and it is integrated with our
+Python module via the <a class="reference external" href="https://docs.python.org/3/library/ctypes.html">ctypes</a> library. To use this function, you must have OpenMP and GSL installed before installing <code class="docutils literal notranslate"><span class="pre">knnpe</span></code>.</p>
+<p>In Ubuntu/Debian, you can install these dependencies via apt:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install build-essential</span>
+<span class="go">sudo apt install libgsl-dev</span>
+<span class="go">sudo apt install libomp-dev</span>
+</pre></div>
+</div>
+<p>If these dependencies are not available, <code class="docutils literal notranslate"><span class="pre">knnpe</span></code> will use a native Python function for doing the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.</p>
+<p>Whether the dependencies are available or not, <code class="docutils literal notranslate"><span class="pre">knnpe</span></code> can be installed via:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install knnpe</span>
+</pre></div>
+</div>
+<p>or you can directly clone its git repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/hvribeiro/knnpe.git</span>
+<span class="go">cd knnpe</span>
+<span class="go">pip install -e .</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
+<p>Implementation of the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor permutation entropy. (A) Illustration of a dataset with irregularly distributed data points <span class="math notranslate nohighlight">\(\{z_i\}_{i=1,\dots,N}\)</span> in the <span class="math notranslate nohighlight">\(xy\)</span>-plane where each coordinate pair <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> is associated with a value <span class="math notranslate nohighlight">\(z_i\)</span>. (B) Initially, we construct a <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor graph using the data coordinates to define neighborhood relationships. In this graph, each data point <span class="math notranslate nohighlight">\(z_i\)</span> represents a node, with undirected edges connecting pairs <span class="math notranslate nohighlight">\(i\leftrightarrow j\)</span> when <span class="math notranslate nohighlight">\(j\)</span> is among the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors of <span class="math notranslate nohighlight">\(i\)</span> (<span class="math notranslate nohighlight">\(k=3\)</span> in this example). (C) Subsequently, we execute <span class="math notranslate nohighlight">\(n\)</span> biased random walks of length <span class="math notranslate nohighlight">\(w\)</span> starting from each node, sampling the data points to generate time series (<cite>n=2</cite> and <span class="math notranslate nohighlight">\(w=6\)</span> in this example). We then apply the Bandt-Pompe approach to each of these time series. This involves creating overlapping partitions of length <span class="math notranslate nohighlight">\(d\)</span> (embedding dimension) and arranging the partition indices in ascending order of their values to determine the sorting permutations for each partition (<cite>d=3</cite> in this example). (D) Finally, we evaluate the probability of each of the <span class="math notranslate nohighlight">\(d!\)</span> possible permutations (ordinal distribution) and calculate its Shannon entropy, thereby defining the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor permutation entropy.</p>
+<figure class="align-center">
+<img alt="https://raw.githubusercontent.com/hvribeiro/knnpe/main/examples/figs/figmethod.png" src="https://raw.githubusercontent.com/hvribeiro/knnpe/main/examples/figs/figmethod.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The function <cite>knn_permutation_entropy</cite> of <code class="docutils literal notranslate"><span class="pre">knnpe</span></code> calculates <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor permutation entropy as illustrated below for a random dataset with three columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">knnpe</span> <span class="kn">import</span> <span class="n">knn_permutation_entropy</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">knn_permutation_entropy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last column in <cite>data</cite> corresponds to <span class="math notranslate nohighlight">\(\{z_i\}_{i=1,\dots,N}\)</span> values, while the first two columns are used as the data coordinates <span class="math notranslate nohighlight">\(\vec{r}_i = (x_i,y_i)\)</span>. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to be corresponding <span class="math notranslate nohighlight">\(z_i\)</span> values. The code below illustrates the case of data with three dimensions in data coordinates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">knnpe</span> <span class="kn">import</span> <span class="n">knn_permutation_entropy</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">knn_permutation_entropy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function <cite>knn_permutation_entropy</cite> has the following parameters:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>data<span class="classifier">ndarray</span></dt><dd><p>Input array containing unstructured data points, where each row is in the form [x, y, value].</p>
+</dd>
+<dt>d<span class="classifier">int, optional</span></dt><dd><p>The embedding dimension for the entropy calculation (default is 3).</p>
+</dd>
+<dt>tau<span class="classifier">int, optional</span></dt><dd><p>The embedding delay for the entropy calculation (default is 1).</p>
+</dd>
+<dt>p<span class="classifier">float, optional</span></dt><dd><p>Parameter that controls the bias of immediately revisiting a node in the walk (default is 10).
+It is named <span class="math notranslate nohighlight">\({\lambda}\)</span> in the article.</p>
+</dd>
+<dt>q<span class="classifier">float, optional</span></dt><dd><p>Parameter that controls the bias of moving outside the neighborhood of the previous node (default is 0.001).
+It is named <span class="math notranslate nohighlight">\({\beta}\)</span> in the article.</p>
+</dd>
+<dt>random_walk_steps<span class="classifier">int, optional</span></dt><dd><p>The number of steps in each random walk (default is 10).</p>
+</dd>
+<dt>num_walks<span class="classifier">int, optional</span></dt><dd><p>The number of random walk samples to start from each node (default is 10).</p>
+</dd>
+<dt>n_neighbors<span class="classifier">int or array-like, optional</span></dt><dd><p>The number of neighbors for constructing the k-nearest neighbor graph (default is 25).</p>
+</dd>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>The number of parallel threads for the computation (default is -1, which uses all available cores).</p>
+</dd>
+<dt>hide_bar<span class="classifier">bool, optional</span></dt><dd><p>If True, the progress bar is not displayed (default is False).</p>
+</dd>
+<dt>metrics<span class="classifier">bool, optional</span></dt><dd><p>If True, calculates graph density and largest component fraction (default is False).</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>We provide a <a class="reference external" href="https://github.com/hvribeiro/knnpe/blob/master/examples/knnpe.ipynb">notebook</a>
+illustrating how to use <code class="docutils literal notranslate"><span class="pre">knnpe</span></code> and further information we refer to the knnpe’s <a class="reference external" href="https://readthedocs.org/projects/knnpe/badge/?version=latest">documentation</a></p>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h2>
+<p>Pull requests addressing errors or adding new functionalities are always welcome.</p>
+<p class="rubric">References</p>
+<aside class="footnote brackets" id="voltarelli2024" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
+<p>L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino,
+R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. Characterizing unstructured
+data with the nearest neighbor permutation entropy. ?, ? (2024).</p>
+</aside>
+<aside class="footnote brackets" id="bandtpompe2002" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>C. Bandt, B. Pompe. Permutation entropy: A Natural
+Complexity Measure for Time Series. Physical Review Letters 88, 174102 (2002).</p>
+</aside>
+<aside class="footnote brackets" id="ribeiro2012" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S.
+Mendes. Complexity-Entropy Causality Plane as a Complexity
+Measure for Two-Dimensional Patterns. PLOS ONE 7, e40689 (2012).</p>
+</aside>
+<dl class="py function">
+<dt class="sig sig-object py" id="knnpe.knnpe.knn_permutation_entropy">
+<span class="sig-prename descclassname"><span class="pre">knnpe.knnpe.</span></span><span class="sig-name descname"><span class="pre">knn_permutation_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_walk_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_walks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/hvribeiro/knnpe/blob/main/knnpe/knnpe.py#L150-L282"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#knnpe.knnpe.knn_permutation_entropy" title="Permalink to this definition"></a></dt>
+<dd><p>Estimates the k-nearest neighbor permutation entropy of unstructured data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>ndarray</em>) – Input array containing unstructured data points, where each row is in the form [x, y, value].</p></li>
+<li><p><strong>d</strong> (<em>int</em><em>, </em><em>optional</em>) – The embedding dimension for the entropy calculation (default is 3).</p></li>
+<li><p><strong>tau</strong> (<em>int</em><em>, </em><em>optional</em>) – The embedding delay for the entropy calculation (default is 1).</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Parameter that controls the bias of immediately revisiting a node in the walk (default is 10).
+It is named <span class="math notranslate nohighlight">\({\lambda}\)</span> in the article.</p></li>
+<li><p><strong>q</strong> (<em>float</em><em>, </em><em>optional</em>) – Parameter that controls the bias of moving outside the neighborhood of the previous node (default is 0.001).
+It is named <span class="math notranslate nohighlight">\({\beta}\)</span> in the article.</p></li>
+<li><p><strong>random_walk_steps</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of steps in each random walk (default is 10).</p></li>
+<li><p><strong>num_walks</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of random walk samples to start from each node (default is 10).</p></li>
+<li><p><strong>n_neighbors</strong> (<em>int</em><em> or </em><em>array-like</em><em>, </em><em>optional</em>) – The number of neighbors for constructing the k-nearest neighbor graph (default is 25).</p></li>
+<li><p><strong>nthreads</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of parallel threads for the computation (default is -1, which uses all available cores).</p></li>
+<li><p><strong>hide_bar</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the progress bar is not displayed (default is False).</p></li>
+<li><p><strong>metrics</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, calculates graph density and largest component fraction (default is False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The knn permutation entropy by default or an array of values for n_neighbors.</dt><dd><dl class="simple">
+<dt>If metrics is True, for each value in n_neighbors, it returns:</dt><dd><p>[n_neighbors, graph largest component fraction, graph density, knn entropy]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 <section id="indices">
 <h1>Indices<a class="headerlink" href="#indices" title="Permalink to this heading"></a></h1>
