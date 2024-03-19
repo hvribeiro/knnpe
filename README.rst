@@ -59,13 +59,13 @@ In Ubuntu/Debian, you can install these dependencies via apt:
 
 If these dependencies are not available, ``knnpe`` will use a native Python function for doing the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.
 
-Whether the dependencies are available or not, ``knnpe`` can be installed via:
+If all dependencies are available, ``knnpe`` can be installed via:
 
 .. code-block:: console
 
-   pip install knnpe
+   pip install git+https://github.com/hvribeiro/knnpe
 
-or you can directly clone its git repository:
+or
 
 .. code-block:: console
 
@@ -73,6 +73,11 @@ or you can directly clone its git repository:
    cd knnpe
    pip install -e .
 
+If all dependencies are **not** available, you can the PyPI version via:
+
+.. code-block:: console
+
+   pip install knnpe
 
 Basic usage
 ===========
