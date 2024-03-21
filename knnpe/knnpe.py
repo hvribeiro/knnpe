@@ -13,8 +13,8 @@ thereby defining the :math:`k`-nearest neighbor permutation entropy.
    If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
 
    - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
-     `Characterizing unstructured data with the nearest neighbor permutation entropy <https://doi.org/?>`_, 
-     ?, ? (2024).  `arXiv:? <https://arxiv.org/abs/?>`_
+     `Characterizing unstructured data with the nearest neighbor permutation entropy <https://arxiv.org/abs/2403.13122>`_, 
+     ?, ? (2024). `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
 
    .. code-block:: bibtex
        
@@ -26,6 +26,8 @@ thereby defining the :math:`k`-nearest neighbor permutation entropy.
        number        = {},
        pages         = {},
        year          = {2024},
+       eprint        = {2403.13122},
+       archivePrefix = {arXiv},
        doi           = {},
       }
 
@@ -131,7 +133,7 @@ References
 
 .. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, 
    R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. Characterizing unstructured 
-   data with the nearest neighbor permutation entropy. ?, ? (2024).
+   data with the nearest neighbor permutation entropy. arXiv, 2403.13122 (2024).
 .. [#bandtpompe2002] C. Bandt, B. Pompe. Permutation entropy: A Natural 
    Complexity Measure for Time Series. Physical Review Letters 88, 174102 (2002).
 .. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S.
