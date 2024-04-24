@@ -122,6 +122,8 @@ The function `knn_permutation_entropy` has the following parameters:
      If True, the progress bar is not displayed (default is False).
  metrics : bool, optional
      If True, calculates graph density and largest component fraction (default is False).
+ complexity : bool, optional
+     If True, also calculates the knn permutation complexity.
 
 We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
 illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
@@ -159,7 +161,8 @@ from .rwalk import *
 
 
 def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=10, 
-                            num_walks=10, n_neighbors=25, nthreads=-1, hide_bar=True, metrics=False):
+                            num_walks=10, n_neighbors=25, nthreads=-1, hide_bar=True, metrics=False,
+                            complexity=False):
     """
     Estimates the k-nearest neighbor permutation entropy of unstructured data
     
@@ -189,17 +192,21 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
         If True, the progress bar is not displayed (default is False).
     metrics : bool, optional
         If True, calculates graph density and largest component fraction (default is False).
+    complexity : bool, optional
+        If True, also calculates the knn permutation complexity.
+
     Returns
     -------
     float or np.ndarray
        The knn permutation entropy by default or an array of values for n_neighbors.
            If metrics is True, for each value in n_neighbors, it returns: 
                [n_neighbors, graph largest component fraction, graph density, knn entropy]
+        If complexity=True, knn entropy is replace by a list: [knn entropy, knn permutation complexity].
     """
 
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    def estimate_entropy_from_walks(time_series, all_walks, d, tau):
+    def estimate_entropy_from_walks(time_series, all_walks, d, tau, complexity=False):
         """
         Estimates the permutation entropy of a time series based on a set of random walks.
 
@@ -215,14 +222,19 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
             The embedding dimension for the entropy calculation.
         tau : int
             The embedding delay for the entropy calculation.
+        complexity : bool, optional
+            If True, also calculates the permutation complexity.
 
         Returns
         -------
         float
             The knn permutation entropy of the time series based on the provided random walks.
+            If complexity=True, knn entropy is replace by list: [knn entropy, knn permutation complexity].
         """
-    
+
         ordinal_sequence = []
+
+        Smax  = np.log(factorial(d))
 
         for walk in all_walks:
             ts = np.expand_dims(time_series[walk],axis=0)
@@ -239,7 +251,23 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
         _, symbols_count = np.unique(ordinal_sequence, return_counts=True, axis=0)
         probabilities    = symbols_count/symbols_count.sum()
 
-        S = -np.sum(probabilities*np.log(probabilities))
+        S = -np.sum(probabilities*np.log(probabilities))/Smax
+
+        if complexity:
+            n = float(factorial(d))
+            n_states_not_occuring = n-len(probabilities)
+            uniform_dist          = 1/n
+
+            p_plus_u_over_2      = (uniform_dist + probabilities)/2  
+            s_of_p_plus_u_over_2 = -np.sum(p_plus_u_over_2*np.log(p_plus_u_over_2)) - (0.5*uniform_dist)*np.log(0.5*uniform_dist)*n_states_not_occuring
+
+            s_of_p_over_2 = -np.sum(probabilities*np.log(probabilities))/2
+            s_of_u_over_2 = np.log(n)/2.
+
+            js_div_max = -0.5*(((n+1)/n)*np.log(n+1) + np.log(n) - 2*np.log(2*n))    
+            js_div     = s_of_p_plus_u_over_2 - s_of_p_over_2 - s_of_u_over_2
+
+            return [S, S*js_div/js_div_max]
         
         return S
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -256,8 +284,6 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
 
     number_of_vertex = len(time_series)
     max_number_of_egdes = number_of_vertex*(number_of_vertex-1)/2.
-    
-    Smax  = np.log(factorial(d))
 
     property_list = []
     
@@ -273,7 +299,7 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
                                        num_walks=num_walks, p=p, q=q, 
                                        nthreads=nthreads, seed=np.random.randint(1,1e6))
 
-        S = estimate_entropy_from_walks(time_series, all_walks, d, tau)/Smax
+        S = estimate_entropy_from_walks(time_series, all_walks, d, tau, complexity)
         
         if metrics:
             ncomonents, labels = connected_components(adj_matrix)
