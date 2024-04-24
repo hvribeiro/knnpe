@@ -1,16 +1,12 @@
 .. |logo1| image:: https://img.shields.io/pypi/v/knnpe?style=plastic   :alt: PyPI 
    :target: https://pypi.org/project/knnpe/
-   :scale: 100%
 .. |logo2| image:: https://img.shields.io/github/license/hvribeiro/knnpe?style=plastic   :alt: GitHub 
    :target: https://github.com/hvribeiro/knnpe/blob/main/LICENSE
-   :scale: 100%
 .. |logo3| image:: https://img.shields.io/pypi/dm/knnpe?style=plastic   :alt: PyPI - Downloads
    :target: https://pypi.org/project/knnpe/
-   :scale: 100%
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
    :target: https://knnpe.readthedocs.io/en/latest/
    :alt: Documentation Status
-   :scale: 100%
 
 |logo1| |logo2| |logo3| |logo4|
 
