@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 setup(
     name="knnpe",
-    version="0.1.2",
+    version="0.1.3",
     author="L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro",
     author_email="hvr@dfi.uem.br",
     description="A Python package for characterizing unstructured data with the nearest neighbor permutation entropy",
