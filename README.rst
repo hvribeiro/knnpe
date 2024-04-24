@@ -1,9 +1,12 @@
-.. |logo1| image:: https://img.shields.io/pypi/v/knnpe?style=plastic   :alt: PyPI 
+.. |logo1| image:: https://img.shields.io/pypi/v/knnpe?style=plastic
    :target: https://pypi.org/project/knnpe/
-.. |logo2| image:: https://img.shields.io/github/license/hvribeiro/knnpe?style=plastic   :alt: GitHub 
+   :alt: PyPI 
+.. |logo2| image:: https://img.shields.io/github/license/hvribeiro/knnpe?style=plastic
    :target: https://github.com/hvribeiro/knnpe/blob/main/LICENSE
-.. |logo3| image:: https://img.shields.io/pypi/dm/knnpe?style=plastic   :alt: PyPI - Downloads
+   :alt: GitHub 
+.. |logo3| image:: https://img.shields.io/pypi/dm/knnpe?style=plastic
    :target: https://pypi.org/project/knnpe/
+   :alt: PyPI - Downloads
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
    :target: https://knnpe.readthedocs.io/en/latest/
    :alt: Documentation Status
