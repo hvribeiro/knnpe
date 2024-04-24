@@ -6,26 +6,30 @@ The *k*-nearest neighbor permutation entropy [#voltarelli2024]_ extends the fund
 the relative ordering of time series elements [#bandtpompe2002]_ or image pixels [#ribeiro2012]_ inaugurated by 
 permutation entropy to unstructured datasets. This method builds upon nearest neighbor graphs to establish neighborhood
 relations among data points and uses random walks over these graphs to extract ordinal patterns and their distribution, 
-thereby defining the :math:`k`-nearest neighbor permutation entropy.
+thereby defining the $k$-nearest neighbor permutation entropy.
 
-If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
+.. note::
+  
+   If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference:
 
-- L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
-  `Characterizing unstructured data with the nearest neighbor permutation entropy <https://doi.org/?>`_, 
-  ?, ? (2024).  `arXiv:? <https://arxiv.org/abs/?>`_
+   - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
+     `Characterizing unstructured data with the nearest neighbor permutation entropy <https://arxiv.org/abs/2403.13122>`_, 
+     ?, ? (2024). `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
 
-.. code-block:: bibtex
-    
-   @article{voltarelli2024characterizing,
-    title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
-    author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
-    journal       = {},
-    volume        = {},
-    number        = {},
-    pages         = {},
-    year          = {2024},
-    doi           = {},
-   }
+   .. code-block:: bibtex
+       
+      @article{voltarelli2024characterizing,
+       title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
+       author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
+       journal       = {},
+       volume        = {},
+       number        = {},
+       pages         = {},
+       year          = {2024},
+       eprint        = {2403.13122},
+       archivePrefix = {arXiv},
+       doi           = {},
+      }
 
 Installing
 ==========
@@ -42,15 +46,15 @@ In Ubuntu/Debian, you can install these dependencies via apt:
    sudo apt install libgsl-dev
    sudo apt install libomp-dev
 
-If these dependencies are not available, ``knnpe`` will use a native Python function for doing the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.
+If these dependencies are not available, ``knnpe`` will use a native Python function to do the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.
 
-Whether the dependencies are available or not, ``knnpe`` can be installed via:
+If all dependencies are available, ``knnpe`` can be installed via:
 
 .. code-block:: console
 
-   pip install knnpe
+   pip install git+https://github.com/hvribeiro/knnpe
 
-or you can directly clone its git repository:
+or
 
 .. code-block:: console
 
@@ -58,17 +62,21 @@ or you can directly clone its git repository:
    cd knnpe
    pip install -e .
 
+If all dependencies are **not** available, you can use the PyPI version via:
+
+.. code-block:: console
+
+   pip install knnpe
 
 Basic usage
 ===========
-Implementation of the :math:`k`-nearest neighbor permutation entropy. (A) Illustration of a dataset with irregularly distributed data points :math:`\\{z_i\\}_{i=1,\\dots,N}` in the :math:`xy`-plane where each coordinate pair :math:`(x_i,y_i)` is associated with a value :math:`z_i`. (B) Initially, we construct a :math:`k`-nearest neighbor graph using the data coordinates to define neighborhood relationships. In this graph, each data point :math:`z_i` represents a node, with undirected edges connecting pairs :math:`i\\leftrightarrow j` when :math:`j` is among the :math:`k`-nearest neighbors of :math:`i` (:math:`k=3` in this example). (C) Subsequently, we execute :math:`n` biased random walks of length :math:`w` starting from each node, sampling the data points to generate time series (`n=2` and :math:`w=6` in this example). We then apply the Bandt-Pompe approach to each of these time series. This involves creating overlapping partitions of length :math:`d` (embedding dimension) and arranging the partition indices in ascending order of their values to determine the sorting permutations for each partition (`d=3` in this example). (D) Finally, we evaluate the probability of each of the :math:`d!` possible permutations (ordinal distribution) and calculate its Shannon entropy, thereby defining the :math:`k`-nearest neighbor permutation entropy.
+Implementation of the $k$-nearest neighbor permutation entropy. (A) Illustration of a dataset with irregularly distributed data points $\\{z_i\\}_{i=1,\\dots,N}$ in the $xy$-plane where each coordinate pair $(x_i,y_i)$ is associated with a value $z_i$. (B) Initially, we construct a $k$-nearest neighbor graph using the data coordinates to define neighborhood relationships. In this graph, each data point $z_i$ represents a node, with undirected edges connecting pairs $i\\leftrightarrow j$ when $j$ is among the $k$-nearest neighbors of $i$ ($k=3$ in this example). (C) Subsequently, we execute $n$ biased random walks of length $w$ starting from each node, sampling the data points to generate time series ($n=2$ and $w=6$ in this example). We then apply the Bandt-Pompe approach to each of these time series. This involves creating overlapping partitions of length $d$ (embedding dimension) and arranging the partition indices in ascending order of their values to determine the sorting permutations for each partition ($d=3$ in this example). (D) Finally, we evaluate the probability of each of the $d!$ possible permutations (ordinal distribution) and calculate its Shannon entropy, thereby defining the $k$-nearest neighbor permutation entropy.
 
 .. figure:: https://raw.githubusercontent.com/hvribeiro/knnpe/main/examples/figs/figmethod.png
+   :scale: 80 %
    :align: center
 
-|
-
-The function `knn_permutation_entropy` of ``knnpe`` calculates :math:`k`-nearest neighbor permutation entropy as illustrated below for a random dataset with three columns.
+The function `knn_permutation_entropy` of ``knnpe`` calculates $k$-nearest neighbor permutation entropy as illustrated below for a random dataset with three columns.
 
 .. code-block:: python
 
@@ -78,7 +86,7 @@ The function `knn_permutation_entropy` of ``knnpe`` calculates :math:`k`-nearest
    data = np.random.normal(size=(100,3))
    knn_permutation_entropy(data)
 
-The last column in `data` corresponds to :math:`\\{z_i\\}_{i=1,\\dots,N}` values, while the first two columns are used as the data coordinates :math:`\\vec{r}_i = (x_i,y_i)`. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to be corresponding :math:`z_i` values. The code below illustrates the case of data with three dimensions in data coordinates:
+The last column in `data` corresponds to $\\{z_i\\}_{i=1,\\dots,N}$ values, while the first two columns are used as the data coordinates $\\vec{r}_i = (x_i,y_i)$. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to correspond to $z_i$ values. The code below illustrates the case of data with three dimensions in data coordinates:
 
 .. code-block:: python
 
@@ -115,8 +123,8 @@ The function `knn_permutation_entropy` has the following parameters:
  metrics : bool, optional
      If True, calculates graph density and largest component fraction (default is False).
 
-We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/master/examples/knnpe.ipynb>`_
-illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://readthedocs.org/projects/knnpe/badge/?version=latest>`_
+We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
+illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
 
 Contributing
 ============
@@ -126,14 +134,17 @@ Pull requests addressing errors or adding new functionalities are always welcome
 References
 ==========
 
-.. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, 
-   R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. Characterizing unstructured 
-   data with the nearest neighbor permutation entropy. ?, ? (2024).
-.. [#bandtpompe2002] C. Bandt, B. Pompe. Permutation entropy: A Natural 
-   Complexity Measure for Time Series. Physical Review Letters 88, 174102 (2002).
-.. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S.
-   Mendes. Complexity-Entropy Causality Plane as a Complexity
-   Measure for Two-Dimensional Patterns. PLOS ONE 7, e40689 (2012).
+.. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. 
+   Characterizing unstructured data with the nearest neighbor permutation entropy. 
+   arXiv, 2403.13122 (2024).
+
+.. [#bandtpompe2002] C. Bandt, B. Pompe. 
+   Permutation entropy: A Natural Complexity Measure for Time Series. 
+   Physical Review Letters 88, 174102 (2002).
+
+.. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S. Mendes.
+   Complexity-Entropy Causality Plane as a Complexity Measure for Two-Dimensional Patterns. 
+   PLOS ONE 7, e40689 (2012).
 
 """
 
