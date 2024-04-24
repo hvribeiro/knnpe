@@ -6,11 +6,11 @@ The *k*-nearest neighbor permutation entropy [#voltarelli2024]_ extends the fund
 the relative ordering of time series elements [#bandtpompe2002]_ or image pixels [#ribeiro2012]_ inaugurated by 
 permutation entropy to unstructured datasets. This method builds upon nearest neighbor graphs to establish neighborhood
 relations among data points and uses random walks over these graphs to extract ordinal patterns and their distribution, 
-thereby defining the :math:`k`-nearest neighbor permutation entropy.
+thereby defining the $k$-nearest neighbor permutation entropy.
 
 .. note::
   
-   If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference [#voltarelli2024]_:
+   If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference:
 
    - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
      `Characterizing unstructured data with the nearest neighbor permutation entropy <https://arxiv.org/abs/2403.13122>`_, 
@@ -46,7 +46,7 @@ In Ubuntu/Debian, you can install these dependencies via apt:
    sudo apt install libgsl-dev
    sudo apt install libomp-dev
 
-If these dependencies are not available, ``knnpe`` will use a native Python function for doing the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.
+If these dependencies are not available, ``knnpe`` will use a native Python function to do the random walks. This function is also parallelized and may work nicely for most applications; still, it is significantly slower than its C counterpart. For large datasets, we strongly recommend using the C version.
 
 If all dependencies are available, ``knnpe`` can be installed via:
 
@@ -62,7 +62,7 @@ or
    cd knnpe
    pip install -e .
 
-If all dependencies are **not** available, you can the PyPI version via:
+If all dependencies are **not** available, you can use the PyPI version via:
 
 .. code-block:: console
 
@@ -86,7 +86,7 @@ The function `knn_permutation_entropy` of ``knnpe`` calculates $k$-nearest neigh
    data = np.random.normal(size=(100,3))
    knn_permutation_entropy(data)
 
-The last column in `data` corresponds to $\\{z_i\\}_{i=1,\\dots,N}$ values, while the first two columns are used as the data coordinates $\\vec{r}_i = (x_i,y_i)$. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to be corresponding $z_i$ values. The code below illustrates the case of data with three dimensions in data coordinates:
+The last column in `data` corresponds to $\\{z_i\\}_{i=1,\\dots,N}$ values, while the first two columns are used as the data coordinates $\\vec{r}_i = (x_i,y_i)$. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to correspond to $z_i$ values. The code below illustrates the case of data with three dimensions in data coordinates:
 
 .. code-block:: python
 
@@ -134,14 +134,17 @@ Pull requests addressing errors or adding new functionalities are always welcome
 References
 ==========
 
-.. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, 
-   R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. Characterizing unstructured 
-   data with the nearest neighbor permutation entropy. arXiv, 2403.13122 (2024).
-.. [#bandtpompe2002] C. Bandt, B. Pompe. Permutation entropy: A Natural 
-   Complexity Measure for Time Series. Physical Review Letters 88, 174102 (2002).
-.. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S.
-   Mendes. Complexity-Entropy Causality Plane as a Complexity
-   Measure for Two-Dimensional Patterns. PLOS ONE 7, e40689 (2012).
+.. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. 
+   Characterizing unstructured data with the nearest neighbor permutation entropy. 
+   arXiv, 2403.13122 (2024).
+
+.. [#bandtpompe2002] C. Bandt, B. Pompe. 
+   Permutation entropy: A Natural Complexity Measure for Time Series. 
+   Physical Review Letters 88, 174102 (2002).
+
+.. [#ribeiro2012] H. V. Ribeiro, L. Zunino, E. K. Lenzi, P. A. Santoro, R. S. Mendes.
+   Complexity-Entropy Causality Plane as a Complexity Measure for Two-Dimensional Patterns. 
+   PLOS ONE 7, e40689 (2012).
 
 """
 
