@@ -99,7 +99,7 @@ The function `knn_permutation_entropy` of ``knnpe`` calculates $k$-nearest neigh
    data = np.random.normal(size=(100,3))
    knn_permutation_entropy(data)
 
-The last column in `data` corresponds to $\\{z_i\\}_{i=1,\\dots,N}$ values, while the first two columns are used as the data coordinates $\\vec{r}_i = (x_i,y_i)$. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to correspond to $z_i$ values.. The code below illustrates the case of data with three dimensions in data coordinates:
+The last column in `data` corresponds to $\\{z_i\\}_{i=1,\\dots,N}$ values, while the first two columns are used as the data coordinates $\\vec{r}_i = (x_i,y_i)$. If the dataset has more dimensions in data coordinates, they must be passed as the first columns of the dataset, and the last column is always assumed to correspond to $z_i$ values. The code below illustrates the case of data with three dimensions in data coordinates:
 
 .. code-block:: python
 
