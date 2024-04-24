@@ -8,7 +8,7 @@
    :target: https://pypi.org/project/knnpe/
    :alt: PyPI - Downloads
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
-   :target: https://knnpe.readthedocs.io/en/latest/
+   :target: https://knnpe.readthedocs.io
    :alt: Documentation Status
 
 |logo1| |logo2| |logo3| |logo4|
