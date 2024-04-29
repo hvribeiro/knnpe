@@ -26,20 +26,18 @@ If you have used ``knnpe`` in a scientific publication, we would appreciate cita
 
 - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
   `Characterizing unstructured data with the nearest neighbor permutation entropy <https://arxiv.org/abs/2403.13122>`_, 
-  ?, ? (2024).  `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
+  Chaos, (Accepted, 2024).  `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
 
 .. code-block:: bibtex
     
    @article{voltarelli2024characterizing,
     title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
     author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
-    journal       = {},
+    journal       = {Chaos},
     volume        = {},
     number        = {},
     pages         = {},
-    year          = {2024},
-    eprint        = {2403.13122},
-    archivePrefix = {arXiv},
+    year          = {Accepted, 2024},
     doi           = {},
    }
 
@@ -149,7 +147,7 @@ References
 
 .. [#voltarelli2024] L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro. 
    Characterizing unstructured data with the nearest neighbor permutation entropy. 
-   arXiv, 2403.13122 (2024).
+   Chaos, (Accepted, 2024).
 
 .. [#bandtpompe2002] C. Bandt, B. Pompe. 
    Permutation entropy: A Natural Complexity Measure for Time Series. 
