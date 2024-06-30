@@ -36,7 +36,7 @@ If you have used ``knnpe`` in a scientific publication, we would appreciate cita
     journal       = {Chaos},
     volume        = {34},
     pages         = {053130},
-    year          = {Accepted, 2024},
+    year          = {2024},
     doi           = {10.1063/5.0209206},
    }
 
