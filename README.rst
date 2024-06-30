@@ -25,8 +25,8 @@ thereby defining the $k$-nearest neighbor permutation entropy.
 If you have used ``knnpe`` in a scientific publication, we would appreciate citations to the following reference:
 
 - L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro, 
-  `Characterizing unstructured data with the nearest neighbor permutation entropy <https://arxiv.org/abs/2403.13122>`_, 
-  Chaos, (Accepted, 2024).  `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
+  `Characterizing unstructured data with the nearest neighbor permutation entropy <https://doi.org/10.1063/5.0209206>`_, 
+  Chaos 34, 053130 (2024).  `arXiv:2403.13122 <https://arxiv.org/abs/2403.13122>`_
 
 .. code-block:: bibtex
     
@@ -34,11 +34,10 @@ If you have used ``knnpe`` in a scientific publication, we would appreciate cita
     title         = {Characterizing unstructured data with the nearest neighbor permutation entropy}, 
     author        = {L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro},
     journal       = {Chaos},
-    volume        = {},
-    number        = {},
-    pages         = {},
-    year          = {Accepted, 2024},
-    doi           = {},
+    volume        = {34},
+    pages         = {053130},
+    year          = {2024},
+    doi           = {10.1063/5.0209206},
    }
 
 Installing
