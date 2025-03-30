@@ -289,7 +289,7 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
     
     for n_neighbor in tqdm(n_neighbors, position=0, leave=True, disable=hide_bar):
 
-        if dis_metric!='euclidian'
+        if dis_metric!='euclidian':
             adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1, metric=dis_metric)
         else:
             adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1)
