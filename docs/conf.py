@@ -25,7 +25,7 @@ copyright = '2024, Voltarelli, Pessa, Zunino, Zola, Lenzi, Perc, Ribeiro'
 author = 'L. G. J. M. Voltarelli, A. A. B. Pessa, L. Zunino, R. S. Zola, E. K. Lenzi, M. Perc, H. V. Ribeiro'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = '0.1.4'
 
 
 # -- General configuration ---------------------------------------------------
