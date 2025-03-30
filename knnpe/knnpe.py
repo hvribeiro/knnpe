@@ -121,6 +121,9 @@ The function `knn_permutation_entropy` has the following parameters:
      If True, calculates graph density and largest component fraction (default is False).
  complexity : bool, optional
      If True, also calculates the knn permutation complexity.
+ dis_metric : string, optional
+     The distance metric used to determine the knn graph (default is 'euclidean'). It should be an
+     string corresponding to one sklearn.metrics.DistanceMetric.
 
 We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
 illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
@@ -159,7 +162,7 @@ from .rwalk import *
 
 def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=10, 
                             num_walks=10, n_neighbors=25, nthreads=-1, hide_bar=True, metrics=False,
-                            complexity=False):
+                            complexity=False, dis_metric='euclidean'):
     """
     Estimates the k-nearest neighbor permutation entropy of unstructured data
     
@@ -191,7 +194,10 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
         If True, calculates graph density and largest component fraction (default is False).
     complexity : bool, optional
         If True, also calculates the knn permutation complexity.
-
+    dis_metric : string, optional
+        The distance metric used to determine the knn graph (default is 'euclidean'). It should be an
+        string corresponding to one sklearn.metrics.DistanceMetric.
+        
     Returns
     -------
     float or np.ndarray
@@ -286,7 +292,11 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
     
     for n_neighbor in tqdm(n_neighbors, position=0, leave=True, disable=hide_bar):
         
-        adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1)
+        if dis_metric!='euclidian':
+            adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1, metric=dis_metric)
+        else:
+            adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1)
+          
         adj_matrix = ((adj_matrix+adj_matrix.T)>0).astype(int)
         adj_matrix_csr = adj_matrix.tocsr()
         
