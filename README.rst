@@ -133,8 +133,9 @@ The function `knn_permutation_entropy` has the following parameters:
  complexity : bool, optional
      If True, also calculates the knn permutation complexity.
  dis_metric : string, optional
-     The distance metric used to determine the knn graph (default is 'euclidean'). It should be an
-     string corresponding to one sklearn.metrics.DistanceMetric.
+     The distance metric used to determine the knn graph (default is 'euclidean').
+     It should be a string corresponding to one sklearn.metrics.DistanceMetric.
+     If 'mahalanobis', it will calculate the inverve covariance matrix automatically.
 
 We provide a `notebook <https://github.com/hvribeiro/knnpe/blob/main/examples/knnpe.ipynb>`_
 illustrating how to use ``knnpe`` and further information we refer to the knnpe's `documentation <https://hvribeiro.github.io/knnpe/>`_
