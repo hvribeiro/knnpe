@@ -1,6 +1,6 @@
 [project]
 name = "knnpe"
-version = "0.1.3"
+version = "0.1.4"
 authors = [{ name="Haroldo V. Ribeiro", email="hvr@dfi.uem.br" },]
 description = "A Python package for characterizing unstructured data with the nearest neighbor permutation entropy"
 readme = "README.rst"
