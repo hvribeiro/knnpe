@@ -195,8 +195,9 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
     complexity : bool, optional
         If True, also calculates the knn permutation complexity.
     dis_metric : string, optional
-        The distance metric used to determine the knn graph (default is 'euclidean'). It should be an
-        string corresponding to one sklearn.metrics.DistanceMetric.
+        The distance metric used to determine the knn graph (default is 'euclidean').
+        It should be a string corresponding to one sklearn.metrics.DistanceMetric.
+        If 'mahalanobis', it will calculate the inverve covariance matrix automatically.
         
     Returns
     -------
@@ -292,10 +293,13 @@ def knn_permutation_entropy(data, d=3, tau=1, p=10, q=0.001, random_walk_steps=1
     
     for n_neighbor in tqdm(n_neighbors, position=0, leave=True, disable=hide_bar):
         
-        if dis_metric!='euclidian':
-            adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1, metric=dis_metric)
-        else:
+        if dis_metric=='euclidian':
             adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1)
+        elif dis_metric=='mahalanobis':
+            adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1, metric=dis_metric,
+                                          metric_params={'VI': np.linalg.inv(np.cov(data_to_graph.T))})
+        else:
+            adj_matrix = kneighbors_graph(data_to_graph, n_neighbors=n_neighbor, n_jobs=-1, metric=dis_metric)
           
         adj_matrix = ((adj_matrix+adj_matrix.T)>0).astype(int)
         adj_matrix_csr = adj_matrix.tocsr()
