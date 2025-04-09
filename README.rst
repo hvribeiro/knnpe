@@ -7,11 +7,14 @@
 .. |logo3| image:: https://img.shields.io/pypi/dm/knnpe?style=plastic
    :target: https://pypi.org/project/knnpe/
    :alt: PyPI - Downloads
+.. |logo5| image:: https://static.pepy.tech/badge/knnpe
+   :target: https://pepy.tech/projects/knnpe)
+   :alt: PyPI - Total of downloads
 .. |logo4| image:: https://readthedocs.org/projects/knnpe/badge/?version=latest
-   :target: https://knnpe.readthedocs.io
+   :target: https://knnpe.readthedocs.io/
    :alt: Documentation Status
 
-|logo1| |logo2| |logo3| |logo4|
+|logo1| |logo2| |logo3| |logo5| |logo4|
 
 knnpe: A Python package implementing the *k*-nearest neighbor permutation entropy
 =================================================================================
